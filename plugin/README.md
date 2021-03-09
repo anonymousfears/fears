@@ -24,3 +24,40 @@ To install the plugin on one of supported IDEs, go to `Preference > Plugin > Gea
 2. Implement a set of new methods in the IDE and save the code changes.
 3. After the newly added methods are identified, the recommendations will be presented in the plugin window.
 4. If the recommendation is applicable, press on the <img src="https://raw.githubusercontent.com/anonymousfears/fears/master/.github/image/quote_icon.png" height = 20> icon to copy the code snippet recommended.
+
+### Usage examples
+
+Try one of the following example code to get some recommendations for preliminary tests.
+
+```java
+@Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_maps);
+        SupportMapFragment mapFragment = (SupportMapFragment) getSupportFragmentManager().findFragmentById(R.id.map);
+        mapFragment.getMapAsync(this);
+    }
+```
+
+```java
+@Override
+public void onBackPressed() {
+    DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
+    if (drawer.isDrawerOpen(GravityCompat.START)) {
+        drawer.closeDrawer(GravityCompat.START);
+    } else {
+        super.onBackPressed();
+    }
+}
+```
+
+```java
+private void updateCustomLabelTextSummary() {
+        mCustomCarrierLabelText = Settings.System.getString(getActivity().getContentResolver(), Settings.System.CUSTOM_CARRIER_LABEL);
+        if (TextUtils.isEmpty(mCustomCarrierLabelText)) {
+            mCustomCarrierLabel.setSummary(R.string.custom_carrier_label_notset);
+        } else {
+            mCustomCarrierLabel.setSummary(mCustomCarrierLabelText);
+        }
+    }
+```
